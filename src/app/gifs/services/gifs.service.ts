@@ -60,14 +60,15 @@ export class GifsService {
     //peticion a la api
     const params = new HttpParams()
     .set('api_key', this.apiKey)
-    .set('limit', '10')
+    .set('limit', '15')
     .set('q', tag);
 
     this.http.get<SearchResponse>(`${ this.serviceUrl }/search?`, { params })
     .subscribe( resp => {
       this.gifList = resp.data
+      console.log(this.gifList)
     });
-
   }
+
 
 }
