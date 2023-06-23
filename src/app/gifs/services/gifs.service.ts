@@ -31,7 +31,7 @@ export class GifsService {
 
   }
 
-  //Metodo Local storage
+  //Metodo enviar al Local storage
   private saveLocalStorage():void {
     localStorage.setItem('history', JSON.stringify( this._tagsHistory ));
   }
@@ -66,7 +66,6 @@ export class GifsService {
     this.http.get<SearchResponse>(`${ this.serviceUrl }/search?`, { params })
     .subscribe( resp => {
       this.gifList = resp.data
-      console.log(this.gifList)
     });
   }
 
